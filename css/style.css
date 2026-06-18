@@ -1,0 +1,576 @@
+/* ========================================
+   CSS Custom Properties (Theme Variables)
+   ======================================== */
+
+:root[data-theme="dark"] {
+    /* Background Colors */
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #1a1a1a;
+    --bg-tertiary: #2a2a2a;
+    
+    /* Foreground/Text Colors */
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+    --text-muted: #888888;
+    
+    /* Accent Colors */
+    --accent-primary: #ff6b6b;
+    --accent-secondary: #4ecdc4;
+    --accent-success: #95e1d3;
+    --accent-warning: #f38181;
+    
+    /* Border and Shadows */
+    --border-color: #ffffff;
+    --border-width: 2px;
+    --shadow: 4px 4px 0 rgba(255, 255, 255, 0.3);
+    --shadow-hover: 6px 6px 0 rgba(255, 255, 255, 0.4);
+}
+
+:root[data-theme="light"] {
+    /* Background Colors */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f5f5;
+    --bg-tertiary: #e0e0e0;
+    
+    /* Foreground/Text Colors */
+    --text-primary: #0a0a0a;
+    --text-secondary: #333333;
+    --text-muted: #666666;
+    
+    /* Accent Colors */
+    --accent-primary: #e63946;
+    --accent-secondary: #1d3557;
+    --accent-success: #2a9d8f;
+    --accent-warning: #e76f51;
+    
+    /* Border and Shadows */
+    --border-color: #0a0a0a;
+    --border-width: 2px;
+    --shadow: 4px 4px 0 rgba(0, 0, 0, 0.3);
+    --shadow-hover: 6px 6px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* ========================================
+   Global Styles and Reset
+   ======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    padding: 2rem;
+    transition: background-color 300ms ease, color 300ms ease;
+}
+
+.hero,
+.timer-section,
+.tasks-section,
+.links-section,
+.preferences,
+.task-item,
+.link-item,
+button,
+input {
+    transition: background-color 300ms ease, color 300ms ease, border-color 300ms ease, box-shadow 300ms ease;
+}
+
+/* ========================================
+   Typography
+   ======================================== */
+
+h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+/* ========================================
+   Hero Section (Clock and Greeting)
+   ======================================== */
+
+.hero {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background-color: var(--bg-secondary);
+    border: var(--border-width) solid var(--border-color);
+    box-shadow: var(--shadow);
+}
+
+.greeting {
+    margin-bottom: 2rem;
+}
+
+.greeting-date {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.greeting-text {
+    font-size: 3rem;
+    font-weight: 900;
+}
+
+.clock-display {
+    font-size: 5rem;
+    font-weight: 900;
+    font-family: 'Courier New', monospace;
+    display: block;
+    letter-spacing: 0.5rem;
+}
+
+/* ========================================
+   Main Grid Layout
+   ======================================== */
+
+.main-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+    .main-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ========================================
+   Common Section Styles
+   ======================================== */
+
+.timer-section,
+.tasks-section {
+    padding: 2rem;
+    background-color: var(--bg-secondary);
+    border: var(--border-width) solid var(--border-color);
+    box-shadow: var(--shadow);
+}
+
+/* ========================================
+   Timer Component
+   ======================================== */
+
+.timer-display {
+    font-size: 4rem;
+    font-weight: 900;
+    font-family: 'Courier New', monospace;
+    text-align: center;
+    margin: 2rem 0;
+    padding: 1rem;
+    background-color: var(--bg-tertiary);
+    border: var(--border-width) solid var(--border-color);
+}
+
+.timer-controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.timer-duration h3 {
+    margin-top: 1rem;
+}
+
+.duration-presets {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.duration-custom {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.duration-custom input {
+    flex: 1;
+}
+
+.timer-sound {
+    margin-top: 1.5rem;
+}
+
+.timer-sound label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+/* ========================================
+   Button Styles
+   ======================================== */
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: var(--border-width) solid var(--border-color);
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 100ms ease;
+    flex: 1;
+}
+
+.btn:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translate(-2px, -2px);
+}
+
+.btn:active {
+    transform: translate(0, 0);
+    box-shadow: none;
+}
+
+.btn-primary {
+    background-color: var(--accent-primary);
+}
+
+.btn-secondary {
+    background-color: var(--bg-tertiary);
+}
+
+.btn-small {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+}
+
+.btn-preset {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: var(--border-width) solid var(--border-color);
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 100ms ease;
+}
+
+.btn-preset:hover {
+    box-shadow: var(--shadow);
+    transform: translate(-2px, -2px);
+}
+
+.btn-preset.active {
+    background-color: var(--accent-secondary);
+}
+
+/* ========================================
+   Input Styles
+   ======================================== */
+
+input[type="text"],
+input[type="number"] {
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: var(--border-width) solid var(--border-color);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    outline: none;
+    transition: box-shadow 100ms ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    box-shadow: var(--shadow);
+}
+
+input[type="checkbox"] {
+    width: 1.2rem;
+    height: 1.2rem;
+    cursor: pointer;
+}
+
+/* ========================================
+   Tasks Component
+   ======================================== */
+
+.task-input-group {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.task-input-group input {
+    flex: 1;
+}
+
+.task-error {
+    color: var(--accent-warning);
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    min-height: 1.2rem;
+}
+
+.task-list {
+    list-style: none;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    background-color: var(--bg-tertiary);
+    border: var(--border-width) solid var(--border-color);
+    transition: all 500ms ease;
+}
+
+.task-item.completed {
+    opacity: 0.5;
+}
+
+.task-item.completed .task-description {
+    text-decoration: line-through;
+}
+
+.task-content {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex: 1;
+}
+
+.task-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.task-toggle {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.task-toggle .checkbox {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: var(--border-width) solid var(--border-color);
+    background-color: var(--bg-primary);
+    transition: all 500ms ease;
+}
+
+.task-toggle .checkbox.checked {
+    background-color: var(--accent-primary);
+}
+
+.task-edit,
+.task-save,
+.task-cancel {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: var(--border-width) solid var(--border-color);
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 100ms ease;
+}
+
+.task-edit:hover,
+.task-save:hover,
+.task-cancel:hover {
+    box-shadow: var(--shadow);
+    transform: translate(-2px, -2px);
+}
+
+.task-edit-input {
+    flex: 1;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: var(--border-width) solid var(--border-color);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.task-edit-mode {
+    flex: 1;
+}
+
+.empty-state {
+    padding: 1rem;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.task-checkbox {
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+}
+
+.task-description {
+    flex: 1;
+    word-break: break-word;
+}
+
+.task-delete {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: var(--border-width) solid var(--border-color);
+    background-color: var(--accent-warning);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 100ms ease;
+}
+
+.task-delete:hover {
+    box-shadow: var(--shadow);
+    transform: translate(-2px, -2px);
+}
+
+/* ========================================
+   Quick Links Component
+   ======================================== */
+
+.links-section {
+    padding: 2rem;
+    background-color: var(--bg-secondary);
+    border: var(--border-width) solid var(--border-color);
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+}
+
+.link-input-group {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.link-input-group input {
+    flex: 1;
+}
+
+.link-list {
+    list-style: none;
+}
+
+.link-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    background-color: var(--bg-tertiary);
+    border: var(--border-width) solid var(--border-color);
+}
+
+.link-anchor {
+    flex: 1;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: color 100ms ease;
+}
+
+.link-anchor:hover {
+    color: var(--accent-secondary);
+}
+
+.link-delete {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: var(--border-width) solid var(--border-color);
+    background-color: var(--accent-warning);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 100ms ease;
+}
+
+.link-delete:hover {
+    box-shadow: var(--shadow);
+    transform: translate(-2px, -2px);
+}
+
+/* ========================================
+   Preferences and Theme Toggle
+   ======================================== */
+
+.preferences {
+    padding: 2rem;
+    background-color: var(--bg-secondary);
+    border: var(--border-width) solid var(--border-color);
+    box-shadow: var(--shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.theme-toggle {
+    width: 4rem;
+    height: 4rem;
+    font-size: 2rem;
+    border: var(--border-width) solid var(--border-color);
+    background-color: var(--bg-tertiary);
+    cursor: pointer;
+    transition: all 100ms ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translate(-2px, -2px);
+}
+
+.user-name-section {
+    display: flex;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.user-name-section input {
+    flex: 1;
+}
+
+/* ========================================
+   Focus States for Accessibility
+   ======================================== */
+
+button:focus,
+input:focus {
+    outline: 2px solid var(--accent-secondary);
+    outline-offset: 2px;
+}

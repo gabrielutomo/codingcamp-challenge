@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List Life Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Hero Section: Clock and Greeting -->
+    <header class="hero">
+        <div class="greeting" data-component="greeting">
+            <p class="greeting-date" data-greeting-date></p>
+            <h1 class="greeting-text" data-greeting-text>Good morning</h1>
+        </div>
+        <div class="clock" data-component="clock">
+            <time class="clock-display" data-clock-display>00:00:00</time>
+        </div>
+    </header>
+
+    <!-- Main Grid: Timer and Tasks -->
+    <main class="main-grid">
+        <!-- Pomodoro Timer -->
+        <section class="timer-section" data-component="timer">
+            <h2>Pomodoro Timer</h2>
+            
+            <div class="timer-display" data-timer-display>25:00</div>
+            
+            <div class="timer-controls">
+                <button class="btn btn-primary" data-timer-start>Start</button>
+                <button class="btn btn-secondary" data-timer-stop>Stop</button>
+                <button class="btn btn-secondary" data-timer-reset>Reset</button>
+            </div>
+            
+            <div class="timer-duration">
+                <h3>Duration</h3>
+                <div class="duration-presets">
+                    <button class="btn-preset" data-duration="15">15m</button>
+                    <button class="btn-preset active" data-duration="25">25m</button>
+                    <button class="btn-preset" data-duration="45">45m</button>
+                    <button class="btn-preset" data-duration="60">60m</button>
+                </div>
+                <div class="duration-custom">
+                    <input 
+                        type="number" 
+                        min="1" 
+                        max="180" 
+                        placeholder="Custom (1-180)" 
+                        data-duration-input
+                    >
+                    <button class="btn-preset" data-duration-set>Set</button>
+                </div>
+            </div>
+            
+            <div class="timer-sound">
+                <label>
+                    <input type="checkbox" data-sound-toggle checked>
+                    Sound notifications
+                </label>
+            </div>
+        </section>
+
+        <!-- Task List -->
+        <section class="tasks-section" data-component="tasks">
+            <h2>Tasks</h2>
+            
+            <div class="task-input-group">
+                <input 
+                    type="text" 
+                    placeholder="Add a new task..." 
+                    maxlength="500"
+                    data-task-input
+                >
+                <button class="btn btn-primary" data-task-add>Add</button>
+            </div>
+            
+            <div class="task-error" data-task-error></div>
+            
+            <ul class="task-list" data-task-list>
+                <!-- Tasks will be rendered here -->
+            </ul>
+        </section>
+    </main>
+
+    <!-- Quick Links Section -->
+    <section class="links-section" data-component="links">
+        <h2>Quick Links</h2>
+        
+        <div class="link-input-group">
+            <input 
+                type="text" 
+                placeholder="Link name" 
+                maxlength="100"
+                data-link-name
+            >
+            <input 
+                type="text" 
+                placeholder="URL" 
+                data-link-url
+            >
+            <button class="btn btn-primary" data-link-add>Add</button>
+        </div>
+        
+        <ul class="link-list" data-link-list>
+            <!-- Links will be rendered here -->
+        </ul>
+    </section>
+
+    <!-- Theme Toggle and Preferences -->
+    <aside class="preferences" data-component="theme">
+        <button class="theme-toggle" data-theme-toggle>
+            <span class="theme-icon">☀️</span>
+        </button>
+        
+        <div class="user-name-section">
+            <input 
+                type="text" 
+                placeholder="Your name (optional)" 
+                maxlength="50"
+                data-user-name
+            >
+            <button class="btn btn-secondary btn-small" data-user-name-save>Save</button>
+        </div>
+    </aside>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
